@@ -1,3 +1,4 @@
-tensorflow
-moviepy
+scipy
 streamlit
+moviepy
+tensorflow
