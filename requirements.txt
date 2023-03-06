@@ -1,3 +1,4 @@
 tensorflow
 moviepy
 protobuf==3.19.1
+streamlit==1.18.0
