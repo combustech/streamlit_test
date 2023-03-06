@@ -1,3 +1,4 @@
+pip==23.0.1
+protobuf
 tensorflow
 moviepy
-protobuf == 3.9.2
