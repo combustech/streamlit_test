@@ -1,4 +1,20 @@
-streamlit==1.13.0
-tensorflow==2.10.0
-tensorboard==2.10.1
+# Dependencies
+# numpy
+# requests
+
+# Core
+streamlit
+
+# Utils
+openai
+transformers
+keybert
+plotly
+
+protobuf==3.19.1
+tensorflow
+causalimpact
+# fbprophet
+torch
+# pystan==2.19.1.1
 moviepy
