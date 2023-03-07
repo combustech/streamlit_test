@@ -54,7 +54,7 @@ with col1:
         ckpt_dir = " ./fast-style-transfer/ckpt/style_image_13_ckpt "
     
     if img_save_dir != "":
-        command = "python ./fast-style-transfer/evaluate.py " \
+        command = "python3 ./fast-style-transfer/evaluate.py " \
                             + "--checkpoint" + ckpt_dir \
                             + "--in-path " + img_save_dir \
                             + " --out-path " + output_img_dir
