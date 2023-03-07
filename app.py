@@ -26,13 +26,23 @@ with col1:
         date_now = str(datetime.now())[0:19].replace('-','_').replace(' ','_').replace(':',"_")
         background = Image.open("./img/back_upper.jpg")
         foreground = Image.open(upload_image)
+        b_h, b_w = background.size
+        f_h, f_w = foreground.size
+        
+        if 0.8 < f_h / f_w < 1.2:
+            foreground = foreground.resize((300,300))
+        
+        else:
+            foreground = foreground.resize((500,350))
         
         img_save_dir = './fast-style-transfer/input/img_' + date_now + ".jpg"
         output_img_dir = img_save_dir.replace("/input/","/output/")
         
-        foreground.save(img_save_dir, 'JPEG')
         b_h, b_w = background.size
         f_h, f_w = foreground.size
+        
+        foreground.save(img_save_dir, 'JPEG')
+        
         ## foreground가 background 보다 클 경우 처리해야 함
         background.paste(foreground,(int(b_h/2 - f_h/2),int(b_w/2 - f_w/2)))
         st.image(background)
@@ -84,6 +94,14 @@ with col1:
 
             b_r_h, b_r_w = background_r.size
             f_r_h, f_r_w = foreground_r.size
+            
+            if 0.8 < f_r_h / f_r_w < 1.2:
+                foreground_r = foreground_r.resize((800,800))
+        
+            else:
+                foreground_r = foreground_r.resize((800,550))
+            
+            f_r_h, f_r_w = foreground_r.size
             ## foreground가 background 보다 클 경우 처리해야 함
             background_r.paste(foreground_r,(int(b_r_h/2 - f_r_h/2),int(b_r_w/2 - f_r_w/2)))
             
@@ -95,7 +113,7 @@ with col1:
     st.image("./img/back_left_bottom.jpg")
 
 with col2:
-    if background_r != None:
+    if background_r != None:        
         st.image(background_r)
     else:
         st.image("./img/back_right.jpg")
